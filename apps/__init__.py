@@ -55,3 +55,38 @@ def create_app(config):
     register_blueprints(app)
     configure_database(app)
     return app
+
+
+
+# app.py
+
+from flask import Flask, render_template
+import plotly.graph_objs as go
+
+
+
+# Sample data for the 3D plot
+data = [
+    go.Scatter3d(
+        x=[1, 2, 3, 4, 5],
+        y=[2, 3, 4, 5, 6],
+        z=[3, 4, 5, 6, 7],
+        mode='markers',
+        marker=dict(size=12, color='blue'),
+        name='Sample Data'
+    )
+]
+
+# Layout settings for the 3D plot
+layout = go.Layout(
+    scene=dict(
+        xaxis_title='X Axis',
+        yaxis_title='Y Axis',
+        zaxis_title='Z Axis'
+    )
+)
+
+#@app.route('/interactive_3d_graph')
+def interactive_3d_graph():
+    return render_template('plotly.html', data=data, layout=layout)
+
