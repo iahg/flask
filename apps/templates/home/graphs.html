@@ -15,26 +15,22 @@
 
     {% include "includes/navigation.html" %}
 
-
     <div class="container mt-5">
-      <h1>Interactive 3D Graph</h1>
-      <!-- Bootstrap container for the graph -->
-      <div class="jumbotron">
-          <div id="plotly-3d-graph"></div>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">My Card Title</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu bibendum bibendum, elit sapien aliquet elit, vel bibendum sapien sapien vel elit.</p>
+            </div>
+          </div>
+        </div>
       </div>
-     </div>
-  <!-- Use JavaScript to render the 3D graph -->
-     <script>
-        var data = {{ data | safe }};
-        var layout = {{ layout | safe }};
-        Plotly.newPlot('plotly-3d-graph', data, layout);
-      </script>
-
-    <div class="container-fluid py-4">
-
-      {% include "includes/footer.html" %}
-
     </div>
+
+    {% include "includes/footer.html" %}
 
   </main> 
 

@@ -40,7 +40,7 @@ dataFrameSerialization = "arrow"
 
 # The preset Streamlit theme that your custom theme inherits from.
 # One of "light" or "dark".
-# base =
+# base = "light"
 
 # Primary accent color for interactive elements.
 primaryColor="#F63366"
@@ -59,3 +59,8 @@ textColor="#262730"
 font="sans serif"
 
 
+[ui]
+hideTopBar = true
+
+[server]
+headless = true
