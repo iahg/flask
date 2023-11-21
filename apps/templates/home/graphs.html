@@ -9,26 +9,34 @@
     border: 1px solid #ccc;
     background-color: #f0f0f0; /* Set the background color of the iframe */
   }
-  .grafana-iframe-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
-        height: 0;
-  }
-
-  .grafana-iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 1000px) {
-    .grafana-iframe-container {
-      padding-bottom: 75%; /* Aspect ratio for 4:3 */
+/*  .grafana-iframe-container {
+/*      position: relative;
+/*      width: 100%;
+/*      padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
+/*      height: 0;
+/*    }
+*/
+    .grafana-iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-  }
+
+    .grafana-iframe-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .grafana-iframe-container {
+      position: relative;
+      width: 50%; /* Adjust this value as needed */
+      padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
+      height: 0;
+}
+
+
   </style>
 {% endblock stylesheets %}
 
@@ -42,19 +50,39 @@
   <main class="main-content position-relative border-radius-lg ">
 
     {% include "includes/navigation.html" %}
-    <div class="container mt-5"></div>
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="grafana-iframe-container">
-            <iframe src="http://127.0.0.1:3000/d/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511" frameborder="0"></iframe>
+        <div class="col-md-12">
+
+          <div class="grafana-iframe-wrapper">
+            <div class="grafana-iframe-container">
+              <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&theme=light&panelId=2" frameborder="0"></iframe>
+            </div>
+            <div class="grafana-iframe-container">
+              <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&theme=light&panelId=1" frameborder="0"></iframe>
+            </div>
           </div>
-          <div class="grafana-iframe-container">
-            <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&panelId=2" width="450" height="200" frameborder="0"></iframe>
+          
+            <div class="grafana-iframe-wrapper">
+              <div class="grafana-iframe-container">
+                <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&theme=light&panelId=4" frameborder="0"></iframe>
+              </div>
+              <div class="grafana-iframe-container">
+                <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&theme=light&panelId=5" frameborder="0"></iframe>
+              </div>
+            </div>
+
           </div>
-          <div class="grafana-iframe-container">
-            <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&panelId=4" width="450" height="200" frameborder="0"></iframe>
-          </div>
+
         </div>
+
+
+
+        <div class="grafana-iframe-container iframe">
+          <iframe src="http://127.0.0.1:3000/d-solo/ff84f1a8-1a0f-414f-a66d-8a5361bc907c/flask?orgId=1&from=1699578565511&to=1699600165511&theme=light&panelId=3" frameborder="0"></iframe>
+        </div>
+
+        
       </div>
     </div>
     {% include "includes/footer.html" %}
